@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME</title>
+  <link href="../public/css/style.css" rel="stylesheet">
+  <!-- <link href="../public/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+</head>
+
+<body>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+
+
+    <form style="text-align: center; margin-top: 15%;" method="post" action="/mailer" onsubmit="return validate()">  
+     <!-- <form style="text-align: center; margin-top: 15%;">  -->
+
+
+    <label>
+      <p class="label-txt">ENTER YOUR EMAIL</p>
+      <input type="email" class="input" name="email" id="email" placeholder="email">
+      <br>
+      <label for="error" id="error1"></label>
+
+      <!-- <div class="line-box">
+    <div class="line"></div> 
+</div> -->
+    </label>
+    <br>
+
+    <button type="submit">Send Email</button>
+  </form>
+  <hr>
+  <script>
+    let email = document.getElementById("email");
+    let error = document.getElementById("error");
+    let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    let strongpwdregex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    // let mediumpwdregex= /^((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))$/;
+    let mediumpwdregex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+
+    function validate() {
+      // error.innerHTML="";
+      // error2.innerHTML="";
+      // error3.innerHTML="";
+      // error4.innerHTML="";
+
+
+
+      if (email.value == "" || email.value.trim() == "") {
+        error1.innerHTML = "Email cannot be empty";
+        error1.style.color = "red";
+        return false;
+      }
+      else if (regex.test(email.value) == true) {
+        error1.innerHTML = "";
+        error1.style.color = "green";
+      } else if (regex.test(email.value) == false) {
+        error1.innerHTML = "Email format invalid";
+        error1.style.color = "red";
+        return false;
+      }
+    }
+
+  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+
+</body>
+
+
+</html>
