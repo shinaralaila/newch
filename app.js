@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const port = 4000
+
 app.set("view engine", "ejs");
 const path = require('path');
 const nodemailer=require('nodemailer');
@@ -81,7 +81,7 @@ app.post('/mailer', (req, res) =>{
   });
    
     })
+    app.listen(process.env.PORT ||4000, ()=>{
+      console.log('Server is runing on port 4000')
+  }) ;
    
-app.listen(port, ()=>{
-    console.log(`Server is runing on port ${port}`)
-})
