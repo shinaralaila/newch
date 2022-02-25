@@ -75,8 +75,11 @@ app.post('/mailer', (req, res) =>{
   transporter.sendMail(mailDetails, function(err, data) {
       if(err) {
           console.log('something went wrong',err);
+          res.send (req.body.email+" "   +'something went wrong ')
       } else {
           console.log('Email sent successfully');
+          res.send (req.body.email+ " "  +"Email sent successfully")
+
       }
   });
    
