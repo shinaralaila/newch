@@ -34,11 +34,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set("views", __dirname + "/views");
 
 app.get('/', (req, res) => {
-    res.send("Welcome to Coding Competition #2 by Shinara Laila, FSD MEAN KKEM OCT")
+   // res.send("Welcome to Coding Competition #2 by Shinara Laila, FSD MEAN KKEM OCT")
+    res.render("index")
 });
 
 app.get('/home', (req, res) => {
-    res.render("index")
+    res.render("home")
 });
 
 // const REDIRECT_URI = "https://www.googleapis.com/oauth2/v4/token"
@@ -67,7 +68,8 @@ app.post('/mailer', (req, res) => {
     });
 
     let mailDetails = {
-        from: process.env.USEREMAIL,
+        // from: process.env.USEREMAIL,
+        from: "Shinara <chikkushinu29@gmail.com>",
         to: `${req.body.email}`,
         subject: 'Code Challenge 2',
         text: 'Nodemailer testing mail ',
@@ -77,11 +79,10 @@ app.post('/mailer', (req, res) => {
     transporter.sendMail(mailDetails, function (err, data) {
         if (err) {
             console.log('Something went wrong.', err);
-            res.send('Something went wrong. '+req.body.email)
+            res.send('<h3>Oops...!!!</h3><h4>Something went wrong while sending email to  '+req.body.email+'</h4>')
         } else {
             console.log('Email sent successfully.');
-            res.send("Email sent successfully to "+req.body.email )
-
+            res.send('<h3>OK!</h3><h4>Email sent successfully to '+req.body.email+'</h4>')
         }
     });
 
