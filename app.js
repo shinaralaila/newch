@@ -69,8 +69,8 @@ app.post('/mailer', (req, res) => {
     let mailDetails = {
         from: process.env.USEREMAIL,
         to: `${req.body.email}`,
-        subject: 'Code challenge 2',
-        text: 'Node.js testing mail ',
+        subject: 'Code Challenge 2',
+        text: 'Nodemailer testing mail ',
 
     };
 
@@ -87,6 +87,6 @@ app.post('/mailer', (req, res) => {
 
 })
 app.listen(process.env.PORT || 4000, () => {
-    console.log('Server is runing on port 4000')
+    console.log('Server is running on port 4000.')
 });
 
